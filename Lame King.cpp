@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#define PI    acos(-1.0)
+#define all(x) x.begin(),x.end()
+#define nl    '\n'
+typedef long long int ll;
+typedef unsigned long long int llu;
+using namespace std;
+
+int main()
+{
+    ll t; cin>>t;
+    while(t--)
+    {
+        ll a,b; cin>>a>>b;
+        ll x=abs(a);
+        ll y=abs(b);
+        if(x==y)
+            cout<<x*2<<nl;
+        else
+        {
+            if(x>y)
+                cout<<(x*2)-1<<nl;
+            else
+                cout<<(y*2)-1<<nl;
+        }
+    }
+}
