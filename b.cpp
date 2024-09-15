@@ -1,47 +1,48 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+// In The Name of Allah
+#include <bits/stdc++.h>
+#define PI acos(-1.0)
+#define all(x) x.begin(), x.end()
+#define nl '\n'
+#define pb push_back
+typedef long long int ll;
+typedef unsigned long long int llu;
+using namespace std;
 
-// Custom sorting function
-bool customSort(int a, int b) {
-    // Check if a and b are even or odd
-    bool isEvenA = a % 2 == 0;
-    bool isEvenB = b % 2 == 0;
-
-    // Compare based on criteria
-    if (isEvenA && isEvenB) {
-        // Both are even, compare normally
-        return a < b;
-    } else if (!isEvenA && !isEvenB) {
-        // Both are odd, compare normally
-        return a < b;
-    } else {
-        // One is even, the other is odd
-        if (isEvenA) {
-            // Even numbers come first
-            return true;
-        } else {
-            // Odd numbers come next
-            return false;
-        }
-    }
+void sol()
+{
+  ll n, m, q;
+  cin >> n >> m >> q;
+  ll a, b;
+  cin >> a >> b;
+  if( a > b )
+    swap ( a, b);
+  ll d;
+  cin >> d;
+  ll ans = 0;
+  if( a < d && d < b ){
+        ans = (a+b)/2 - a;
+  }
+  else if( d < a){
+    ans = a - 1;
+  }
+  else {
+    ans = n - b;
+  }
+  cout << ans << nl;
 }
 
-int main() {
-    std::vector<int> myVector = {1, 1, 3, 5};
-
-    // Sort the vector using the custom sorting function
-    std::sort(myVector.begin(), myVector.end(), customSort);
-
-    // Move duplicates to the end
-    auto it = std::unique(myVector.begin(), myVector.end());
-    std::sort(it, myVector.end());
-
-    // Display the sorted vector
-    for (const auto& element : myVector) {
-        std::cout << element << " ";
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t;
+    cin >> t;
+    while (t--)
+    {
+        sol();
     }
-    std::cout << std::endl;
-
     return 0;
 }
+
+
+
