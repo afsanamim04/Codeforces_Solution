@@ -1,25 +1,54 @@
-
-#include<bits/stdc++.h>
-#define PI    acos(-1.0)
-#define all(x) x.begin(),x.end()
-#define nl    '\n'
+// In The Name of Allah
+#include <bits/stdc++.h>
+#define PI acos(-1.0)
+#define all(x) x.begin(), x.end()
+#define nl '\n'
+#define pb push_back
 typedef long long int ll;
 typedef unsigned long long int llu;
 using namespace std;
 
+void sol()
+{
+  ll n, m, q;
+  cin >> n >> m >> q;
+  vector<ll > v;
+  for( int i = 0; i < m; ++ i ){
+    ll x;
+    cin >> x;
+    v.pb( x );
+  }
+  sort(all(v));
+  while(q--){
+  ll d;
+  cin >> d;
+  ll lo = lower_bound(v.begin(), v.end(), d) - v.begin();
+ // cout << lo << nl;
+  if( lo == 0 ){
+    cout << v[0] - 1 << nl;
+  }
+  else if( lo == m ){
+    cout << n - v[m-1] << nl;
+  }
+  else
+  {
+      cout << (v[lo]+v[lo-1])/2 - v[lo-1] << nl;
+  }
+  }
+}
+
 int main()
 {
-    ll n; cin>>n;
-    vector<ll>n;
-    for(ll i=0; i<n; i++)
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        ll j; cin>>j;
-        v.push_back(j);
+        sol();
     }
-    sort(v.begin(),v,end());
-    for(ll i=0; i<v[n-1]; i++)
-    {
-        if((i+1)!=v[i])
-            cout<<i+1<<nl;
-    }
+    return 0;
 }
+
+
+
